@@ -1,0 +1,10 @@
+/* CommentCard.css */
+.like-icon:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .liked {
+    color: red;
+  }
+  

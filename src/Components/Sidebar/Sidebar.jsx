@@ -18,28 +18,38 @@ const Sidebar = () => {
   };
 
   return (
-    <div className='sticky top-0 h-[100vh]'>
-      <div className='flex flex-col justify-between h-full'>
+    <div style={{ position: 'sticky', top: 0, height: '100vh',padding:'10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
         <div>
-          <div className='pt-10'>
-            <img className='w-40' src="https://i.imgur.com/zqpwkLQ.png" alt="" />
-            <div className='mt-10'>
+          <div style={{ paddingTop: '10px' }}>
+            <img style={{ width: '40%' }} src="https://i.imgur.com/zqpwkLQ.png" alt="" />
+            <div style={{ marginTop: '10px' }}>
               {menu.map((item) => (
                 <div
                   key={item.title}
-                  className={`flex items-center mb-5 cursor-pointer text-lg ${activeTab === item.title ? "text-blue-500" : "text-black"}`}
+                  style={{ display: 'grid' ,
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '5px',
+                    cursor: 'pointer',
+                    fontSize: '1.125rem', // Equivalent to text-lg in Tailwind CSS
+                    color: activeTab === item.title ? '#3182ce' : '#000', // Blue when active, black otherwise
+                  }}
+                  
                   onClick={() => handleTabClick(item.title)}
                 >
-                  {activeTab === item.title ? item.activeIcon : item.icon}
-                  <p className='ml-2'>{item.title}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}>
+                    {activeTab === item.title ? item.activeIcon : item.icon}
+                    <p style={{ marginLeft: '8px' }}>{item.title}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className='flex items-center cursor-pointer pt-10'>
-            <IoReorderThreeOutline />
-            <p className='ml-2'>More</p>
-          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', paddingTop: '10px' }}>
+          <IoReorderThreeOutline />
+          <p style={{ marginLeft: '8px' }}>More</p>
         </div>
       </div>
     </div>
