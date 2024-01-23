@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { menu } from './SidebarConfig';
 import { useNavigate } from 'react-router-dom';
+import { useDisclosure } from "@chakra-ui/react";
+import CreatePostModel from '../Post/CreatePostModel';
+import SearchComponents from '../SearchComponents/SearchComponents';
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState(menu[0].title);
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isSearchVisible,setIsSearchVisible] = useState(false);
 
   const handleTabClick = (title) => {
     setActiveTab(title);
@@ -15,14 +20,23 @@ const Sidebar = () => {
     } else if (title === 'Home') {
       navigate("/");
     }
+    else if(title==="Create"){
+      onOpen()
+    }
+    if(title === "Search"){
+      setIsSearchVisible(true);
+    }
+    else setIsSearchVisible(false);
   };
 
   return (
-    <div style={{ position: 'sticky', top: 0, height: '100vh',padding:'10px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+    
+    <div style={{ position: 'sticky', top: 0, height: '100vh',padding:'10px',display:'flex' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%',padding:'0 10px'}}>
         <div>
-          <div style={{ paddingTop: '10px' }}>
-            <img style={{ width: '40%' }} src="https://i.imgur.com/zqpwkLQ.png" alt="" />
+          {activeTab !=="Search" && <div style={{ paddingTop: '10px' }}>
+            <img style={{ width: '55%' }} src="https://i.imgur.com/zqpwkLQ.png" alt="" />
+            </div>}
             <div style={{ marginTop: '10px' }}>
               {menu.map((item) => (
                 <div
@@ -40,18 +54,19 @@ const Sidebar = () => {
                 >
                   <div style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}>
                     {activeTab === item.title ? item.activeIcon : item.icon}
-                    <p style={{ marginLeft: '8px' }}>{item.title}</p>
+                    {activeTab !=="Search" && <p style={{ fontWeight: activeTab === item.title ? 'bold' : 'normal' }}>{item.title}</p>}
                   </div>
                 </div>
               ))}
             </div>
-          </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', paddingTop: '10px' }}>
           <IoReorderThreeOutline />
-          <p style={{ marginLeft: '8px' }}>More</p>
+          {activeTab !=="Search" &&<p style={{ marginLeft: '8px' }}>More</p>}
         </div>
       </div>
+      <CreatePostModel onClose={onClose} isOpen={isOpen} />
+      {isSearchVisible && <SearchComponents/>}
     </div>
   );
 };

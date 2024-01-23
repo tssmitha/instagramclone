@@ -34,7 +34,7 @@ const PostCard = () => {
 
     return (
         <div>
-            <div style={{ border: '1px solid #e2e8f0', borderRadius: '0.375rem', width: '100%' }}>
+            <div style={{ border: '1px solid #e2e8f0', borderRadius: '0.375rem', width: '100%'}}>
                 <div style={{ display: 'flex', alignItems: 'center', padding: '1rem' }}>
                     <img style={{ height: '3rem', width: '3rem', borderRadius: '50%' }} src="https://cdn.pixabay.com/photo/2020/05/29/06/42/cat-5233986_640.jpg" alt="" />
                     <div style={{ marginLeft: '1.25rem', flex: '1' }}>

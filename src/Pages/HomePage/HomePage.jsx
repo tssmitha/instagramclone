@@ -4,6 +4,7 @@ import HomeRight from '../../Components/HomeRight/HomeRight.jsx';
 import PostCard from '../../Components/Post/PostCard.jsx';
 import CreatePostModel from '../../Components/Post/CreatePostModel.jsx';
 
+
 const Homepage = () => {
     return (
         <div>
@@ -31,12 +32,11 @@ const Homepage = () => {
                         ))}
                     </div>
                 </div>
-                <div style={{width:'35%',marginLeft:'20px'}}>
+                <div style={{width:'30%',marginLeft:'20px'}}>
                     <HomeRight />
                 </div>
             </div>
 
-            <CreatePostModel/>
         </div>
     );
 };

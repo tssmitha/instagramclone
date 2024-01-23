@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, Modal, ModalOverlay, ModalContent, ModalBody, ModalHeader, ModalCloseButton } from '@chakra-ui/react';
 import { FaPhotoVideo } from "react-icons/fa";
 import "./CreatePostCard.css"
+import { GrEmoji } from "react-icons/gr";
+import { GoLocation } from "react-icons/go";
 
 const CreatePostModel = ({ onClose, isOpen }) => {
 
@@ -35,10 +37,14 @@ const CreatePostModel = ({ onClose, isOpen }) => {
             alert("please select an image or video");
         }
     }
+    const[caption,setCaption] = useState("");
+    const handleCaptionChange=(e)=>{
+        setCaption(e.target.value)
+    }
 
     return (
         <div>
-            <Modal size={'4xl'} onClose={onClose} isOpen={true} isCentered>
+            <Modal size={'4xl'} onClose={onClose} isOpen={isOpen} isCentered>
                 <ModalOverlay />
                 <ModalContent>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1px,10px' }}>
@@ -69,11 +75,23 @@ const CreatePostModel = ({ onClose, isOpen }) => {
                                     {file && <img style={{height:'100%'}} src={URL.createObjectURL(file)} alt="" />}
 
                             </div>
-                            <div style={{height:'100%',width:'1px',border:'2px solid #e2e8f0 '}}></div>
+                            <div style={{height:'100%',width:'1px',border:'2px solid black '}}></div>
                             <div style={{width:'50%'}}>
                                 <div style={{display:'flex',padding:'0rem 2rem'}}>
                                     <img style={{width:'2rem',height:'2rem',borderRadius:'50%'}} src="https://cdn.pixabay.com/photo/2017/08/02/14/59/cat-2571971_1280.jpg" alt="" />
                                     <p style={{ marginLeft: '4px', fontWeight: '600'}}>username</p>
+                                </div>
+                                <div style={{padding:'0rem, 2rem'}}>
+                                    <textarea placeholder='write a caption' rows={'8'} className='captionInput' name='caption' onChange={handleCaptionChange}></textarea>
+                                </div>
+                                <div style={{display:'flex',justifyContent:'space-between',padding:'0,2px'}}>
+                                <GrEmoji />
+                                <p style={{opacity:'0.7'}}>{caption?.length} /2,2000</p>
+                                </div>
+                                <hr />
+                                <div style={{padding:'2px',justifyContent:'space-between',alignItems:'center',display:'flex',border:'1px solid #e2e8f0'}}>
+                                    <input type="text" placeholder='location' className='locationInput' name='location' />
+                                    <GoLocation />
                                 </div>
                             </div>
                         </div>
