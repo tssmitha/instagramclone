@@ -4,6 +4,7 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import Homepage from '../HomePage/HomePage';
 import Profile from '../Profile/Profile';
 import Story from '../Story/Story';
+import Register from '../RegisterPage/Register'; // Import your Register component
 
 const Router = () => {
   return (
@@ -13,9 +14,11 @@ const Router = () => {
       </div>
       <div style={{ flex: 1 }}>
         <Routes>
-          <Route path='/' element={<Homepage />} />
+          <Route path='/' element={<Register />} /> {/* Display Register component by default on the root URL */}
+          <Route path='/homepage' element={<Homepage />} />
           <Route path='/username' element={<Profile />} />
           <Route path='/story' element={<Story />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </div>
