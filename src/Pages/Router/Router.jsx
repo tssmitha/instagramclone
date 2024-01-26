@@ -5,6 +5,8 @@ import Homepage from '../HomePage/HomePage';
 import Profile from '../Profile/Profile';
 import Story from '../Story/Story';
 import Register from '../RegisterPage/Register'; // Import your Register component
+import LandingPage from '../Landingpage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
 
 const Router = () => {
   return (
@@ -14,7 +16,9 @@ const Router = () => {
       </div>
       <div style={{ flex: 1 }}>
         <Routes>
-          <Route path='/' element={<Register />} /> {/* Display Register component by default on the root URL */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<LoginPage />} />
           <Route path='/homepage' element={<Homepage />} />
           <Route path='/username' element={<Profile />} />
           <Route path='/story' element={<Story />} />

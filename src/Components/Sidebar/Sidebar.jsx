@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { useDisclosure } from "@chakra-ui/react";
 import CreatePostModel from '../Post/CreatePostModel';
 import SearchComponents from '../SearchComponents/SearchComponents';
+import CreateReelsModel from '../Reels/CreateReelsModel';
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState(menu[0].title);
   const navigate = useNavigate();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isCreatePostOpen, onOpen: onOpenCreatePost, onClose: onCloseCreatePost } = useDisclosure();
+  const { isOpen: isCreateReelsOpen, onOpen: onOpenCreateReels, onClose: onCloseCreateReels } = useDisclosure();
   const [isSearchVisible,setIsSearchVisible] = useState(false);
 
   const handleTabClick = (title) => {
@@ -21,7 +23,10 @@ const Sidebar = () => {
       navigate("/");
     }
     else if(title==="Create"){
-      onOpen()
+      onOpenCreatePost();
+    }
+    else if(title === "Reels"){
+      onOpenCreateReels();
     }
     if(title === "Search"){
       setIsSearchVisible(true);
@@ -65,9 +70,11 @@ const Sidebar = () => {
           {activeTab !=="Search" &&<p style={{ marginLeft: '8px' }}>More</p>}
         </div>
       </div>
-      <CreatePostModel onClose={onClose} isOpen={isOpen} />
+      <CreatePostModel onClose={onCloseCreatePost} isOpen={isCreatePostOpen} />
+      <CreateReelsModel onClose={onCloseCreateReels} isOpen={isCreateReelsOpen} />
       {isSearchVisible && <SearchComponents/>}
     </div>
+    
   );
 };
 

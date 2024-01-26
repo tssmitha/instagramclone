@@ -1,0 +1,89 @@
+.reel-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    width: 100%;
+  }
+  
+  .reel-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+  }
+  
+  .username-location {
+    margin-left: 1.25rem;
+    flex: 1;
+  }
+  
+  .reel-content {
+    width: 100%;
+  }
+  
+  .reel-text {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .reel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .reel-actions {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+  }
+  
+  .action-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .liked {
+    color: red;
+  }
+  
+  .saved {
+    color: #000;
+  }
+  
+  .reel-details {
+    width: 100%;
+    padding: 2px 5px;
+  }
+  
+  .like-count {
+    margin: 0;
+  }
+  
+  .view-comments {
+    cursor: pointer;
+    padding: 2px;
+    opacity: 0.5;
+  }
+  
+  .add-comment {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-top: 2px }
+  
