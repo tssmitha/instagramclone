@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Modal, ModalOverlay, ModalContent, ModalBody, ModalHeader, ModalCloseButton } from '@chakra-ui/react';
+import { Button, Modal, ModalOverlay, ModalContent, ModalBody} from '@chakra-ui/react';
 import { FaPhotoVideo } from "react-icons/fa";
 import "./CreatePostCard.css"
 import { GrEmoji } from "react-icons/gr";
@@ -16,7 +16,7 @@ const CreatePostModel = ({ onClose, isOpen }) => {
         }
     }
 
-    const [isDragOver, setIsDragOver] = useState(false);
+    const [ setIsDragOver] = useState(false);
     const handleDragOver = (event) => {
         event.preventDefault();
         event.dataTransfer.dropEffect = "copy";
@@ -29,7 +29,8 @@ const CreatePostModel = ({ onClose, isOpen }) => {
 
     const handleOnChange = (e) => {
         const file = e.target.files[0];
-        if (file && file.type.startsWith("image/") || file && file.type.startsWith("video/")) {
+        if ((file && file.type.startsWith("image/")) || (file && file.type.startsWith("video/"))){
+
             setFile(file);
         }
         else {

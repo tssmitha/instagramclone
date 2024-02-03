@@ -10,7 +10,7 @@ import { useDisclosure } from "@chakra-ui/react";
 const ReelCard = () => {
     const [isPostLiked, setIsPostLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { onOpen, onClose } = useDisclosure();
 
     const handlePostLike = () => {
         setIsPostLiked(!isPostLiked);

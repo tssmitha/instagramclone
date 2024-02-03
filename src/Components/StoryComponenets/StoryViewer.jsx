@@ -32,8 +32,9 @@ const StoryViewer = ({ stories }) => {
 
     useEffect(() => {
         const interval = setInterval(() => { handleNextStory() }, 2000);
-        return () => clearInterval(interval)
-    }, [currentStoryIndex])
+        return () => clearInterval(interval);
+    }, [currentStoryIndex, handleNextStory]);
+    
 
     return (
         <div style={{position:'relative',width:'100%'}}>

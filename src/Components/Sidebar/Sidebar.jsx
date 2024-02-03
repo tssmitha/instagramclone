@@ -46,8 +46,7 @@ const Sidebar = () => {
               {menu.map((item) => (
                 <div
                   key={item.title}
-                  style={{ display: 'grid' ,
-                    display: 'flex',
+                  style={{display: 'flex',
                     alignItems: 'center',
                     marginBottom: '5px',
                     cursor: 'pointer',
