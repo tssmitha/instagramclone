@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './RegisterPage.css'; // Import CSS file for styling
-import { Link } from 'react-router-dom';
 
 const Register = () => {
   const navigate = useNavigate();
