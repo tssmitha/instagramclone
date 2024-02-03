@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { BsThreeDots, BsBookmarkFill, BsEmojiSmile } from "react-icons/bs";
-import "./ReelCard.css"; // Rename the CSS file if necessary
+import "./Reels.css"; // Rename the CSS file if necessary
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { FaRegComment } from 'react-icons/fa';
 import { RiSendPlaneLine } from "react-icons/ri";

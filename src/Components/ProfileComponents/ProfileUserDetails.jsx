@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ProfileUserDetails = () => {
+  const location = useLocation();
+  const { username } = location.state || {};
+
   return (
     <div style={{ padding: '20px', width: '100%', border: '1px solid #e2e8f0' }}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -10,7 +14,7 @@ const ProfileUserDetails = () => {
 
         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '20px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Username</p>
+            <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{username}</p>
             <button style={{ fontSize: '1rem', padding: '8px', cursor: 'pointer', backgroundColor: '#3182ce', color: '#fff', border: 'none', borderRadius: '4px' }}>Edit Profile</button>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>

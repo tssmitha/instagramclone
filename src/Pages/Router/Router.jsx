@@ -7,6 +7,7 @@ import Story from '../Story/Story';
 import Register from '../RegisterPage/Register'; // Import your Register component
 import LandingPage from '../Landingpage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
+import ProfileSetup from '../Profile/ProfileSetup';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path='/username' element={<Profile />} />
           <Route path='/story' element={<Story />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile-setup" element={<ProfileSetup />} />
         </Routes>
       </div>
     </div>

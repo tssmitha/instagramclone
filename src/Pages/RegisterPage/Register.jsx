@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './RegisterPage.css'; // Import CSS file for styling
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(`Updating ${name} to ${value}`);
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -31,7 +33,11 @@ const Register = () => {
       if (response.status === 200) {
         console.log('Registration successful');
         // Redirect to homepage or login page
-        navigate('/homepage');
+        //navigate('/homepage');
+        console.log(formData.username);
+        navigate('/username', { state: { username: formData.username } });
+        //navigate('/profile-setup', { username: formData.username });
+        //<Link to={{ pathname: '/profile-setup', state: { username: 'exampleUsername' } }}>Go to Profile Setup</Link>
       } else {
         console.error('Error registering user');
       }

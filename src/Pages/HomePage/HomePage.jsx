@@ -3,6 +3,7 @@ import StoryCircle from '../../Components/Story/StoryCircle';
 import HomeRight from '../../Components/HomeRight/HomeRight.jsx';
 import PostCard from '../../Components/Post/PostCard.jsx';
 import CreatePostModel from '../../Components/Post/CreatePostModel.jsx';
+import ReelCard from '../../Components/Reels/Reels.jsx';
 
 
 const Homepage = () => {
