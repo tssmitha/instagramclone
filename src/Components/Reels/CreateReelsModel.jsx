@@ -3,6 +3,7 @@ import { Button, Modal, ModalOverlay, ModalContent, ModalBody } from '@chakra-ui
 import { FaPhotoVideo } from "react-icons/fa";
 import { GrEmoji } from "react-icons/gr";
 import { GoLocation } from "react-icons/go";
+import axios from 'axios'; // Import axios for making HTTP requests
 
 const ReelsModel = ({ onClose, isOpen }) => {
     const [file, setFile] = useState(null);
@@ -31,14 +32,37 @@ const ReelsModel = ({ onClose, isOpen }) => {
         setCaption(e.target.value);
     };
 
+    // Function to handle the upload of the video
+    const handleUpload = async () => {
+        try {
+            // Create a FormData object to store the file and other data
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('caption', caption);
+            
+
+            // Make a POST request to your backend server to handle the upload
+            const response = await axios.post('http://localhost:5000/reels', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            // Handle the response from the server
+            console.log(response.data); // Log the response from the server
+        } catch (error) {
+            console.error('Error uploading video:', error);
+        }
+    };
+
     return (
         <Modal onClose={onClose} isOpen={isOpen} isCentered>
             <ModalOverlay />
             <ModalContent>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1px,10px' }}>
                     <p style={{ marginLeft: '10px' }}>Create new reel</p>
-                    <Button variant={"ghost"} size="sm" colorSchema={"blue"} style={{ margin: '10px' }}>
-                        Share
+                    <Button variant={"ghost"} size="sm" colorSchema={"blue"} style={{ margin: '10px' }} onClick={handleUpload}>
+                        Upload
                     </Button>
                 </div>
                 <hr />

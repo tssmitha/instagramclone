@@ -8,13 +8,15 @@ import Register from '../RegisterPage/Register'; // Import your Register compone
 import LandingPage from '../Landingpage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ProfileSetup from '../Profile/ProfileSetup';
+import Reels from '../../Components/Reels/Reels';
+
 
 const Router = () => {
   return (
     <div style={{ display: 'flex' }}>
-      <div style={{ width: '20%', border: '1px solid #e2e8f0', marginRight: '10px' }}>
+      {/* <div style={{ width: '20%', border: '1px solid #e2e8f0', marginRight: '10px' }}>
         <Sidebar />
-      </div>
+      </div> */}
       <div style={{ flex: 1 }}>
         <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -25,6 +27,7 @@ const Router = () => {
           <Route path='/story' element={<Story />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile-setup" element={<ProfileSetup />} />
+          <Route path="/reels" element={<Reels/>}/>
         </Routes>
       </div>
     </div>
